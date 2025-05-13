@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        /* Basic Reset and Body Styles */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            background: linear-gradient(to bottom right, #0a0a0a, #1e1e1e);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            padding: 80px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .hero-title {
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: #bb86fc;
+            line-height: 1.2;
+        }
+
+        .hero-button {
+            background-color: #e0e0e0;
+            color: #1e1e1e;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-button:hover {
+            background-color: #bb86fc;
+            color: #fff;
+        }
+
+        .wave-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('landingpage.jpg'); /* Replace with your hero wave image */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            animation: wave-motion 15s linear infinite alternate;
+        }
+
+        @keyframes wave-motion {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 30px;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-title {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Features Section 1 Styles */
+        .features-section-1 {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .features-title-1 {
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #bb86fc;
+        }
+
+        .features-grid-1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-box-1 {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-title-small {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #f0f0f0;
+        }
+
+        /* Features Section 2 Styles */
+        .features-section-2 {
+            padding: 60px 0;
+            background-color: #1e1e1e;
+        }
+
+        .features-container-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .feature-card-2 {
+            background-color: #2c2c2c;
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-icon-container {
+            background-color: #4a148c; /* Purple accent */
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            font-size: 1.5em; /* Adjust icon size */
+        }
+
+        .feature-title-2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .feature-additional-info {
+            font-size: 0.85em;
+            color: #ccc;
+        }
+
+        /* Growth Section Styles */
+        .growth-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .section-title-growth {
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #bb86fc;
+        }
+
+        .metrics-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .metric-box {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 30px 20px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 180px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .metric-number {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .metric-description {
+            font-size: 0.9em;
+            color: #9e9e9e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .arrow-icon {
+            font-size: 1em;
+            color: #bb86fc;
+        }
+
+        @media (max-width: 600px) {
+            .metrics-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .metric-box {
+                min-width: 250px;
+                width: 100%;
+            }
+        }
+
+        /* About Us Section Styles */
+        .about-us-section {
+            padding: 80px 0;
+            background-color: #2c2c2c;
+        }
+
+        .about-us-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            align-items: center;
+        }
+
+        .about-us-left {
+            padding-right: 20px;
+        }
+
+        .about-us-heading {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #bb86fc;
+        }
+
+        .about-us-description {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .about-us-right {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-us-right img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .about-us-container {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+
+            .about-us-left {
+                padding-right: 0;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            .about-us-heading {
+                font-size: 2em;
+            }
+
+            .about-us-right {
+                order: -1; /* Image appears above text on smaller screens */
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Additional Sections D and E */
+        .additional-sections {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .additional-section {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 2em;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #9e9e9e;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="wave-background"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Get All Your Needs<br>In a Single Platform</h1>
+            <button class="hero-button">GET STARTED <span aria-hidden="true">→</span></button>
+        </div>
+    </header>
+
+    <section class="features-section-1 container">
+        <h2 class="features-title-1">A Seamless User Experience</h2>
+        <div class="features-grid-1">
+            <div class="feature-box-1">
+                <h3 class="feature-title-small">FEATURE 1</h3>
+                <p>FLEXIBLE PLATFORM</p>
+            </div>
+            <div class="feature-box-1">
+                <h3 class="feature-title-small">FEATURE 2</h3>
+                <p>FULLY SECURED</p>
+            </div>
+            <div class="feature-box-1">
+                <h3 class="feature-title-small">FEATURE 3</h3>
+                <p>TIME SAVER</p>
+            </div>
+            <div class="feature-box-1">
+                <h3 class="feature-title-small">FEATURE 4</h3>
+                <p>KEEP TRACK</p>
+            </div>
+            <div class="feature-box-1">
+                <h3 class="feature-title-small">FEATURE 5</h3>
+                <p>MORE FOCUS</p>
+            </div>
+            <div class="feature-box-1">
+                <h3 class="feature-title-small">FEATURE 6</h3>
+                <p>EASY DEPLOY</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section-2">
+        <div class="container features-container-2">
+            <div class="feature-card-2">
+                <div class="feature-icon-container">
+                    <span class="feature-icon">🎶</span> </div>
+                <h2 class="feature-title-2">DEEP DIVE ANALYSIS IN SECONDS</h2>
+                <p class="feature-description">
+                    Describe the product here. Include important features, pricing and other relevant info.
+                    Consider adding an image or video of the product.
+                </p>
+                <p class="feature-additional-info">Learn more about our analysis tools.</p>
+            </div>
+
+            <div class="feature-card-2">
+                <div class="feature-icon-container">
+                    <span class="feature-icon">📊</span> </div>
+                <h2 class="feature-title-2">DATA VISUALIZATION</h2>
+                <p class="feature-description">
+                    Describe the product here. Include important features, pricing and other relevant info.
+                    Consider adding an image or video of the product.
+                </p>
+                <p class="feature-additional-info">Explore our interactive dashboards.</p>
+            </div>
+
+            <div class="feature-card-2">
+                <div class="feature-icon-container">
+                    <span class="feature-icon">➡️</span> </div>
+                <h2 class="feature-title-2">CUSTOM AI SOLUTIONS</h2>
+                <p class="feature-description">
+                    Describe the product here. Include important features, pricing and other relevant info.
+                    Consider adding an image or video of the product.
+                </p>
+                <p class="feature-additional-info">Discover our tailored AI services.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="growth-section container">
+        <h2 class="section-title-growth">A Glimpse into Our Growth</h2>
+        <div class="metrics-container">
+            <div class="metric-box">
+                <div class="metric-number">3K</div>
+                <div class="metric-description">
+                    <span class="arrow-icon">→</span> TRUSTED CUSTOMERS
+                </div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-number">1M</div>
+                <div class="metric-description">
+                    <span class="arrow-icon">→</span> REPORTS GENERATED
+                </div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-number">32K</div>
+                <div class="metric-description">
+                    <span class="arrow-icon">→</span> TOKEN ACCESS
+                </div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-number">10</div>
+                <div class="metric-description">
+                    <span class="arrow-icon">→</span> SUPPORTED LANGUAGES
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-us-section">
+        <div class="container about-us-container">
+            <div class="about-us-left">
+                <h2 class="about-us-heading">Built by Professionals, for Professionals</h2>
+                <p class="about-us-description">
+                    This is a space to share more about the business: who's behind it, what it does.
